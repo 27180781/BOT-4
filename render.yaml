@@ -1,9 +1,9 @@
 services:
   - type: web
-    name: chatbot-flask
+    name: chatbot-flask # או כל שם אחר שתבחר לשירות
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: python app.py
+    startCommand: gunicorn app:app # הפקודה המעודכנת
     envVars:
       - key: OPENAI_API_KEY
-        sync: false
+        sync: false # מומלץ להגדיר את המפתח כמשתנה סביבה ישירות ב-Render ולא לסנכרן מ-GitHub
